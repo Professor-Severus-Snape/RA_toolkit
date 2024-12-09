@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/kl8w2nyerowpdfdw?svg=true)](https://ci.appveyor.com/project/Professor-Severus-Snape/ra-toolkit)
+
 # Redux Toolkit
 
 ### Задание: Поиск фильмов по каталогу IMDb и добавление найденных фильмов в "Избранное"
