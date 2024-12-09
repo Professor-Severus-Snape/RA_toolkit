@@ -1,0 +1,51 @@
+.menu {
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  background: #0a2aa3;
+}
+
+.menu__list {
+  display: flex;
+  gap: 10px;
+
+  list-style-type: none;
+}
+
+.menu__item {
+  position: relative;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.menu__link {
+  padding: 2px;
+  line-height: 3rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.6;
+  border-bottom-width: 0.15rem;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+}
+
+.menu__link:focus {
+  outline: none;
+}
+
+.menu__link:hover,
+.menu__link:focus {
+  opacity: 1;
+  border-bottom-color: rgb(255, 255, 0);
+}
+
+.menu__link-active,
+.menu__link-active:hover,
+.menu__link-active:focus {
+  opacity: 1;
+  border-bottom-color: rgb(0, 255, 0);
+}
