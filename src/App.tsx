@@ -27,5 +27,7 @@ const App = () => {
 
 export default App;
 
-// Запрос по названию фильма: http://www.omdbapi.com/?apikey=64405bd2&t=die+hard
-// Запрос по IMDb ID: http://www.omdbapi.com/?apikey=64405bd2&i=tt0095016
+// API:
+// Запрос всех фильмов по названию: http://www.omdbapi.com/?apikey=64405bd2&s=die+hard
+// Запрос 1 конкретного фильма по названию: http://www.omdbapi.com/?apikey=64405bd2&t=die+hard
+// Запрос 1 конкретного фильма по IMDb ID: http://www.omdbapi.com/?apikey=64405bd2&i=tt0095016
