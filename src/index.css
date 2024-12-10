@@ -13,12 +13,12 @@
 
 @media (min-width: 800px) {
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
 html {
-  font-size: calc(10px + (14 - 10) * ((100vw - 400px) / (800 - 400)));
+  font-size: calc(10px + (16 - 10) * ((100vw - 400px) / (800 - 400)));
 }
 
 body {
@@ -39,6 +39,16 @@ input {
 button:focus,
 input:focus {
   outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style-type: none;
 }
 
 .visually-hidden {
