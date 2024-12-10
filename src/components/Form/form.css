@@ -3,9 +3,27 @@
   gap: 20px;
 }
 
+.form__fieldset {
+  position: relative;
+
+  border: none;
+  width: 100%;
+}
+
 .form__input {
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 70px 10px 20px;
+}
+
+.form__reset-btn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  width: 30px;
+
+  cursor: pointer;
 }
 
 .form__button {

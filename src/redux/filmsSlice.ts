@@ -30,6 +30,9 @@ const filmsSlice = createSliceWithThunk({
   name: 'films',
   initialState,
   reducers: (creators) => ({
+    removeFilms: creators.reducer( (state) => {
+      state.films = [];
+    }),
     // asyncThunk<{Search: IFilmShort[]}, string> изначает, что асинхронный экшен будет принимать строку queryParamValue и возвращать action.payload вида { Search: IFilmShort[] } :
     fetchFilms: creators.asyncThunk<{ Search: IFilmShort[] }, string>(
       async (queryParamValue, { rejectWithValue }) => {
@@ -69,5 +72,5 @@ const filmsSlice = createSliceWithThunk({
   }),
 });
 
-export const { fetchFilms } = filmsSlice.actions;
+export const { removeFilms, fetchFilms } = filmsSlice.actions;
 export default filmsSlice.reducer;
