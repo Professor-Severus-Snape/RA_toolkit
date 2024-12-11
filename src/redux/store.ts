@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import filmsReducer from './filmsSlice';
+import favouritesReducer from './favouritesSlice';
 
 const store = configureStore({
   reducer: {
     films: filmsReducer, // [{Title: "", Year: "", imdbID: "", Type: "", Poster: ""}, ...]
+    favourites: favouritesReducer, // [{Title: "", Year: "", imdbID: "", Type: "", Poster: ""}, ...]
   },
 });
 
