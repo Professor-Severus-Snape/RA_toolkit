@@ -29,7 +29,7 @@ const Form = () => {
       return; // чтобы не отсылать запрос с пустым полем
     }
 
-    const queryParamValue = trimmedValue.replace(' ', '+').toLowerCase();
+    const queryParamValue = trimmedValue.replace(/ /g, '+').toLowerCase();
 
     dispatch(fetchFilms(queryParamValue));
   };
