@@ -12,13 +12,15 @@ const Films = () => {
       {loading && <h4>Loading...</h4>}
       {error && <h4>{error}</h4>}
 
-      <ul className="films">
-        {films?.length ? (
-          films.map((film: IFilmShort) => <Film key={film.imdbID} film={film} />)
-        ) : (
-          <li>Здесь будут найденные фильмы...</li>
-        )}
-      </ul>
+      {!loading && !error && (
+        <ul className="films">
+          {films?.length ? (
+            films.map((film: IFilmShort) => <Film key={film.imdbID} film={film} />)
+          ) : (
+            <li>Здесь будут найденные фильмы...</li>
+          )}
+        </ul>
+      )}
     </>
   );
 };
