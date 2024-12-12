@@ -8,15 +8,15 @@ const Favourites = () => {
   const { favourites } = useSelector((state: RootState) => state.favourites);
 
   return (
-    <>
-      <ul className="films">
-        {favourites?.length ? (
-          favourites.map((film: IFilmShort) => <Film key={film.imdbID} film={film} />).reverse()
-        ) : (
-          <li>Здесь будут фильмы, добавленные в избранное...</li>
-        )}
-      </ul>
-    </>
+    <ul className="films">
+      {favourites?.length ? (
+        favourites
+          .map((film: IFilmShort) => <Film key={film.imdbID} film={film} />)
+          .reverse()
+      ) : (
+        <li>Здесь будут фильмы, добавленные в избранное...</li>
+      )}
+    </ul>
   );
 };
 
