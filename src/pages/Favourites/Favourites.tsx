@@ -11,7 +11,7 @@ const Favourites = () => {
     <>
       <ul className="films">
         {favourites?.length ? (
-          favourites.map((film: IFilmShort) => <Film key={film.imdbID} film={film} />)
+          favourites.map((film: IFilmShort) => <Film key={film.imdbID} film={film} />).reverse()
         ) : (
           <li>Здесь будут фильмы, добавленные в избранное...</li>
         )}
