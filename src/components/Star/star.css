@@ -1,0 +1,9 @@
+.star {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+  width: 30px;
+
+  cursor: pointer;
+}
