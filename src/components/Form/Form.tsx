@@ -1,21 +1,22 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../redux/store';
 import { fetchFilms, removeFilms } from '../../redux/filmsSlice';
+import { clearForm, saveInputValue } from '../../redux/formSlice';
 import resetBtn from '../../assets/reset.svg';
 import './form.css';
 
 const Form = () => {
-  const [inputValue, setInputValue] = useState('');
+  const { inputValue } = useSelector((state: RootState) => state.form)
   const dispatch: AppDispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setInputValue(value);
+    dispatch(saveInputValue(value)); // сохранение значения из инпут-а (в store)
+    dispatch(removeFilms()); // очистка массива с фильмами (в store)
   };
 
   const handleReset = () => {
-    setInputValue(''); // сброс формы (локально)
+    dispatch(clearForm()); // сброс формы (в store)
     dispatch(removeFilms()); // очистка массива с фильмами (в store)
   };
 
@@ -25,13 +26,13 @@ const Form = () => {
     const trimmedValue = inputValue.trim();
 
     if (!trimmedValue) {
-      setInputValue('');
+      dispatch(clearForm()); // сброс формы (в store)
       return; // чтобы не отсылать запрос с пустым полем
     }
 
     const queryParamValue = trimmedValue.replace(/ /g, '+').toLowerCase();
 
-    dispatch(fetchFilms(queryParamValue));
+    dispatch(fetchFilms(queryParamValue)); // поиск фильмов по значению из инпут-а
   };
 
   return (

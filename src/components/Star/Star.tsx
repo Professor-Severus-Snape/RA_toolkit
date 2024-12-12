@@ -1,5 +1,5 @@
-import { RootState } from '../../redux/store';
-import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { IFilmShort } from '../../models/models';
 import { addToFavourites, removeFromFavourites } from '../../redux/favouritesSlice';
 import starAdded from '../../assets/starAdded.svg';
@@ -9,7 +9,7 @@ import './star.css';
 const Star = ({ imdbID }: { imdbID: string }) => {
   const { films } = useSelector((state: RootState) => state.films); // найденные фильмы
   const { favourites } = useSelector((state: RootState) => state.favourites); // избранные фильмы
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   // поиск индекса фильма в избранном для формирования изначального вида звезды:
   let filmIndex = favourites.findIndex((film: IFilmShort) => film.imdbID === imdbID);

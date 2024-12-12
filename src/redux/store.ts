@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import filmsReducer from './filmsSlice';
 import favouritesReducer from './favouritesSlice';
+import filmsReducer from './filmsSlice';
+import formReducer from './formSlice';
 
 const store = configureStore({
   reducer: {
-    films: filmsReducer, // [{Title: "", Year: "", imdbID: "", Type: "", Poster: ""}, ...]
-    favourites: favouritesReducer, // [{Title: "", Year: "", imdbID: "", Type: "", Poster: ""}, ...]
+    favourites: favouritesReducer, // { favourites: [{Title, Year, imdbID, Type, Poster}, ...] }
+    films: filmsReducer, // { films: [{...}, {...}, ...], loading, error }
+    form: formReducer, // { inputValue: "" }
   },
 });
 
