@@ -30,7 +30,7 @@ const filmsSlice = createSliceWithThunk({
   name: 'films',
   initialState,
   reducers: (creators) => ({
-    removeFilms: creators.reducer( (state) => {
+    removeFilms: creators.reducer((state) => {
       state.films = [];
     }),
     // asyncThunk<{Search: IFilmShort[]}, string> изначает, что асинхронный экшен будет принимать строку queryParamValue и возвращать action.payload вида { Search: IFilmShort[] } :
@@ -44,9 +44,11 @@ const filmsSlice = createSliceWithThunk({
           const response = await fetch(
             baseUrl + '?' + apikey + '&' + queryParam
           );
+
           if (!response.ok) {
-            return rejectWithValue('Ошибка при получении данных от сервера');
+            return rejectWithValue('Ошибка при получении данных от сервера...');
           }
+          
           return await response.json();
         } catch (err) {
           return rejectWithValue(err);

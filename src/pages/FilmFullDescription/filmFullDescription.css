@@ -1,4 +1,4 @@
-.film {
+.film-description {
   position: relative;
 
   display: flex;
@@ -7,24 +7,24 @@
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
 
-.film:not(:last-child) {
+.film-description:not(:last-child) {
   margin-bottom: 30px;
 }
 
-.film__poster {
-  width: 150px;
+.film-description__poster {
+  min-width: 150px;
   background-color: rgb(7, 126, 201);
 }
 
-.film__link {
+.film-description__link {
   display: block;
 }
 
-.film__link:hover {
+.film-description__link:hover {
   color: blue;
 }
 
-.film__info {
+.film-description__info {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -32,12 +32,12 @@
   padding: 30px;
 }
 
-.film__type {
+.film-description__type {
   margin-right: 30px;
   font-size: inherit;
 }
 
-.film__star {
+.film-description__star {
   position: absolute;
   right: 30px;
   bottom: 30px;

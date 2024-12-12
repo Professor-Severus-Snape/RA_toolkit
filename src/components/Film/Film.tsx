@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { RootState } from '../../redux/store';
 import { addToFavourites, removeFromFavourites } from '../../redux/favouritesSlice';
 import { IFilmShort } from '../../models/models';
 import starAdded from '../../assets/starAdded.svg';
 import starNotAdded from '../../assets/starNotAdded.svg';
-import { RootState } from '../../redux/store';
+import './film.css';
 
 const Film = ({ film }: {film: IFilmShort}) => {
   const { imdbID, Poster, Title, Type, Year } = film; // данные текущего фильма
@@ -32,8 +34,8 @@ const Film = ({ film }: {film: IFilmShort}) => {
       <img className="film__poster" src={Poster} />
       <div className="film__info">
         <h2 className="film__title">
-          {/* TODO: по клику на ссылку переход на другой роут с подробным описанием фильма */}
-          <a href="#" className="film__link">{Title}</a>
+          {/* Навигация из корня проекта: */}
+          <Link className="film__link" to={`/${film.imdbID}`}>{Title}</Link>
         </h2>
         <span className="film__type">Жанр: {Type}</span>
         <span className="film__year">Год выпуска: {Year}</span>

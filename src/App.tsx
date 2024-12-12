@@ -5,9 +5,11 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
-import Layout from './components/Layout/Layout';
 import Home from './pages/Home/Home';
 import Favourites from './pages/Favourites/Favourites';
+import FilmFullDescription from './pages/FilmFullDescription/FilmFullDescription';
+
+import Layout from './components/Layout/Layout';
 
 const App = () => {
   const routes = createBrowserRouter(
@@ -15,6 +17,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="favourites" element={<Favourites />} />
+        <Route path=":id" element={<FilmFullDescription />} />
       </Route>
     ),
     {
