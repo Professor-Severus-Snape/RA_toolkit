@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IFilmFull } from '../../models/models';
 import Star from '../../components/Star/Star';
+import noPhoto from '../../assets/noPhoto.png';
 import './filmFullDescription.css';
 
 const FilmFullDescription = () => {
@@ -11,6 +12,18 @@ const FilmFullDescription = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const { id } = useParams(); // достаем значение imdbID по названию динамического параметра
+  
+  const checkJsonValues = (json: IFilmFull) => {
+    const checkedJson: IFilmFull = {...json};
+
+    Object.entries(checkedJson).forEach(([key, value]) => {
+      if (!value || value === "N/A") {
+        checkedJson[key as keyof IFilmFull] = key === 'Poster' ? noPhoto : 'нет данных';
+      }
+    });
+
+    return checkedJson;
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +40,8 @@ const FilmFullDescription = () => {
         }
 
         const json = await response.json();
-        setData(json); // сохранение полученных данных в локальный стейт
+        const checkedJson = checkJsonValues(json); // подмена значений "N/A" на "нет данных"
+        setData(checkedJson); // сохранение полученных данных в локальный стейт
         setError(null); // нет ошибки
       } catch (err) {
         if (err instanceof Error) {

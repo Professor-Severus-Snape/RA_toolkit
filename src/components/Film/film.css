@@ -13,6 +13,7 @@
 
 .film__poster {
   width: 150px;
+  object-fit: contain;
   background-color: rgb(7, 126, 201);
 }
 

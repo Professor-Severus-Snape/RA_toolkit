@@ -10,7 +10,7 @@ const Films = () => {
   return (
     <>
       {loading && <h4>Loading...</h4>}
-      {error && <h4>{error}</h4>}
+      {error && <h4>Ошибка при получении данных...</h4>}
 
       {!loading && !error && (
         <ul className="films">
