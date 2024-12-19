@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IFilmFull } from '../../models/models';
 import Star from '../../components/Star/Star';
-import noPhoto from '../../assets/noPhoto.png';
+import noImage from '../../assets/noImage.png';
 import './filmFullDescription.css';
 
 const FilmFullDescription = () => {
@@ -18,7 +18,7 @@ const FilmFullDescription = () => {
 
     Object.entries(checkedJson).forEach(([key, value]) => {
       if (!value || value === "N/A") {
-        checkedJson[key as keyof IFilmFull] = key === 'Poster' ? noPhoto : 'нет данных';
+        checkedJson[key as keyof IFilmFull] = key === 'Poster' ? noImage : 'нет данных';
       }
     });
 

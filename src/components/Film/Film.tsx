@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import { IFilmShort } from '../../models/models';
 import Star from '../Star/Star';
-import noPhoto from '../../assets/noPhoto.png';
+import noImage from '../../assets/noImage.png';
 import './film.css';
 
 const Film = ({ film }: { film: IFilmShort }) => {
   let { Poster, Type, Year } = film; // данные текущего фильма
 
   const checkData = () => {
-    if (!Poster || Poster === 'N/A') Poster = noPhoto;
+    if (!Poster || Poster === 'N/A') Poster = noImage;
     if (!Type || Type === 'N/A') Type = 'нет данных';
     if (!Year || Year === 'N/A') Year = 'нет данных';
   };

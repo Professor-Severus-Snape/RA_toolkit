@@ -14,7 +14,7 @@
 .film__poster {
   width: 150px;
   object-fit: contain;
-  background-color: rgb(7, 126, 201);
+  background-color: rgb(182, 182, 182);
 }
 
 .film__link {
